@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [sub_resource type="SphereMesh" id=1]
 
@@ -65,15 +65,7 @@ _sections_unfolded = [ "Albedo" ]
 
 radius = 1.0
 
-[sub_resource type="CubeMesh" id=4]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector3( 2, 2, 2 )
-subdivide_width = 0
-subdivide_height = 0
-subdivide_depth = 0
-
-[node name="planet" type="RigidBody"]
+[node name="planet" type="RigidBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -124,23 +116,6 @@ _sections_unfolded = [ "material" ]
 transform = Transform( 127, 0, 0, 0, 127, 0, 0, 0, 127, 0, 0, 0 )
 shape = SubResource( 3 )
 disabled = false
-_sections_unfolded = [ "Transform" ]
-
-[node name="placeholder" type="MeshInstance" parent="." index="2"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 128, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = SubResource( 4 )
-skeleton = NodePath("..")
-material/0 = null
 _sections_unfolded = [ "Transform" ]
 
 

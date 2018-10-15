@@ -3,6 +3,7 @@ This is a basic demonstration of software for space exploration and technology t
 Controls:
 - arrow keys = camera
 - point ship = qweasd
+- fire thrusters = space
 
 In the near future I intend to optimize this code with more exact specifications in
 order to demonstrate the technology necessary for simple spaceflight and to provide
