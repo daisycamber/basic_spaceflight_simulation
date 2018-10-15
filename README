@@ -1,0 +1,11 @@
+This is a basic demonstration of software for space exploration and technology therefor.
+
+Controls:
+- arrow keys = camera
+- point ship = qweasd
+
+In the near future I intend to optimize this code with more exact specifications in
+order to demonstrate the technology necessary for simple spaceflight and to provide
+outreach for students interested in teaching themselves about space exploration. I
+released a basic version of the code so people can tweak it themselves and enjoy
+experimenting with what I have written.
