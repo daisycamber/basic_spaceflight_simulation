@@ -17,7 +17,6 @@ func _physics_process(delta):
 	var cam = get_node("target/camera") # camera
 	var loc = get_translation() # location
 
-
 	# atmospheric drag
 	var dist = loc.distance_to(Vector3(0,0,0))
 	if ( dist <= PLANET_SIZE + ATMOSPHERE_SIZE ):
@@ -46,8 +45,8 @@ func _physics_process(delta):
 		rot.z -= rotationSpeed
 		set_rotation(rot)
 	if (Input.is_action_pressed("a")):
-		var rot = get_rotation()
-		rot.x += rotationSpeed
+		#var rot = get_rotation()
+		#rot.x += rotationSpeed
 		rotate_x(rotationSpeed)
 	if (Input.is_action_pressed("d")):
 		rotate_x(-rotationSpeed)
@@ -56,15 +55,12 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("e")):
 		rotate_y(-rotationSpeed)
 
-
 	# main thrust, get the ships vector (usin nodes) and apply thrust to the acceleration
 	if (Input.is_action_pressed("space")):
 		var vec = (get_node("front").get_global_transform().origin - get_node("back").get_global_transform().origin);
 		vel.x += thrust * vec.x
 		vel.y += thrust * vec.y
 		vel.z += thrust * vec.z
-		
-
 
 	# handle gravity
 	vel.x -= loc.x / g
@@ -73,5 +69,3 @@ func _physics_process(delta):
 
 	# move the launch vehicle
 	vel = move_and_slide(vel,Vector3(0,0,0))
-
-
