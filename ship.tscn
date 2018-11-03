@@ -1,13 +1,54 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="SphereMesh" id=1]
 
-flags = 0
-region = Rect2( 0, 0, 0, 0 )
-margin = Rect2( 0, 0, 0, 0 )
-filter_clip = false
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 32
+is_hemisphere = false
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="CylinderMesh" id=2]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+top_radius = 0.2
+bottom_radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="CylinderMesh" id=3]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+top_radius = 1.0
+bottom_radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="CylinderMesh" id=4]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+top_radius = 0.1
+bottom_radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 0.0205656, 0.0771208, 0.159383, 0.55527, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.358506, 0.358506, 0.358506, 1, 0.352789, 0.352789, 0.352789, 1, 0.344473, 0.344473, 0.344473, 1, 0.35019, 0.35019, 0.35019, 1, 1, 1, 1, 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 2048
+
+[sub_resource type="SpatialMaterial" id=7]
 
 render_priority = 0
 flags_transparent = false
@@ -31,7 +72,59 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = SubResource( 10 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+
+[sub_resource type="SpatialMaterial" id=8]
+
+render_priority = 0
+next_pass = SubResource( 7 )
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.427451, 0.576471, 0.705882, 1 )
+albedo_texture = SubResource( 6 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -60,7 +153,43 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[sub_resource type="SphereMesh" id=12]
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -9.8, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
+[sub_resource type="SphereMesh" id=10]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 radius = 1.0
@@ -69,148 +198,7 @@ radial_segments = 64
 rings = 32
 is_hemisphere = false
 
-[sub_resource type="SpatialMaterial" id=6]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 0.578125, 0.578125, 0.578125, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
-
-[sub_resource type="CylinderMesh" id=1]
-
-material = SubResource( 6 )
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-top_radius = 0.2
-bottom_radius = 1.0
-height = 2.0
-radial_segments = 64
-rings = 4
-
-[sub_resource type="Gradient" id=2]
-
-offsets = PoolRealArray( 0, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture" id=3]
-
-flags = 4
-gradient = SubResource( 2 )
-width = 2048
-
-[sub_resource type="SpatialMaterial" id=4]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 0.84375, 0.834677, 0.834677, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = true
-clearcoat = 1.0
-clearcoat_gloss = 0.5
-clearcoat_texture = SubResource( 3 )
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Clearcoat" ]
-
-[sub_resource type="SphereShape" id=5]
-
-radius = 1.0
-
-[sub_resource type="CylinderMesh" id=7]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-top_radius = 1.0
-bottom_radius = 1.0
-height = 2.0
-radial_segments = 64
-rings = 4
-
-[sub_resource type="CylinderMesh" id=8]
+[sub_resource type="CylinderMesh" id=11]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 top_radius = 0.1
@@ -219,7 +207,36 @@ height = 2.0
 radial_segments = 64
 rings = 4
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="CylinderMesh" id=12]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+top_radius = 0.1
+bottom_radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="CylinderMesh" id=13]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+top_radius = 0.1
+bottom_radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="Gradient" id=14]
+
+offsets = PoolRealArray( 0, 0.29563, 0.347044, 0.419023, 0.688946, 0.763496, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.29563, 0.29563, 0.29563, 1, 0.215938, 0.215938, 0.215938, 1, 0.419023, 0.419023, 0.419023, 1, 0.688946, 0.688946, 0.688946, 1, 0.763496, 0.763496, 0.763496, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=15]
+
+flags = 4
+gradient = SubResource( 14 )
+width = 2048
+
+[sub_resource type="SpatialMaterial" id=16]
 
 render_priority = 0
 flags_transparent = false
@@ -242,7 +259,8 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.84375, 0.834677, 0.834677, 1 )
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = SubResource( 15 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -271,19 +289,14 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[node name="ship" type="KinematicBody" index="0"]
+[sub_resource type="QuadMesh" id=17]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-axis_lock_linear_x = false
-axis_lock_linear_y = false
-axis_lock_linear_z = false
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
-collision/safe_margin = 0.001
+material = SubResource( 16 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[node name="ship" type="Spatial"]
+
 _sections_unfolded = [ "Transform" ]
 
 [node name="front" type="Spatial" parent="." index="0"]
@@ -295,7 +308,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1, 0 )
 layers = 1
-material_override = SubResource( 11 )
+material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
 use_in_baked_light = false
@@ -303,7 +316,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 12 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform" ]
@@ -319,19 +332,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = SubResource( 4 )
+material/0 = null
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="collision" type="CollisionShape" parent="." index="3"]
-
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
-shape = SubResource( 5 )
-disabled = false
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="pulsethruster" type="MeshInstance" parent="." index="4"]
+[node name="pulsethruster" type="MeshInstance" parent="." index="3"]
 
 transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -1, 0 )
 layers = 1
@@ -343,12 +349,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="hydrazine1" type="MeshInstance" parent="." index="5"]
+[node name="hydrazine1" type="MeshInstance" parent="." index="4"]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.9, -1, 0 )
 layers = 1
@@ -360,12 +366,43 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 8 )
+mesh = SubResource( 4 )
 skeleton = NodePath("..")
-material/0 = SubResource( 9 )
+material/0 = null
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="hydrazine2" type="MeshInstance" parent="." index="6"]
+[node name="particles" type="Particles" parent="hydrazine1" index="0"]
+
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 0, -2.5, 0 )
+visible = false
+layers = 1
+material_override = SubResource( 8 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 1
+draw_pass_1 = SubResource( 10 )
+_sections_unfolded = [ "Draw Passes", "Geometry", "Transform", "Visibility" ]
+
+[node name="hydrazine2" type="MeshInstance" parent="." index="5"]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.9, -1, 0 )
 layers = 1
@@ -377,12 +414,43 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 8 )
+mesh = SubResource( 11 )
 skeleton = NodePath("..")
-material/0 = SubResource( 9 )
+material/0 = null
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="hydrazine3" type="MeshInstance" parent="." index="7"]
+[node name="particles" type="Particles" parent="hydrazine2" index="0"]
+
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 0, -2.5, 0 )
+visible = false
+layers = 1
+material_override = SubResource( 8 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 1
+draw_pass_1 = SubResource( 10 )
+_sections_unfolded = [ "Draw Passes", "Geometry", "Transform", "Visibility" ]
+
+[node name="hydrazine3" type="MeshInstance" parent="." index="6"]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1, -0.9 )
 layers = 1
@@ -394,12 +462,43 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 8 )
+mesh = SubResource( 12 )
 skeleton = NodePath("..")
-material/0 = SubResource( 9 )
+material/0 = null
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="hydrazine4" type="MeshInstance" parent="." index="8"]
+[node name="particles" type="Particles" parent="hydrazine3" index="0"]
+
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 0, -2.5, 0 )
+visible = false
+layers = 1
+material_override = SubResource( 8 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 1
+draw_pass_1 = SubResource( 10 )
+_sections_unfolded = [ "Draw Passes", "Geometry", "Transform", "Visibility" ]
+
+[node name="hydrazine4" type="MeshInstance" parent="." index="7"]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1, 0.9 )
 layers = 1
@@ -411,14 +510,108 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 8 )
+mesh = SubResource( 13 )
 skeleton = NodePath("..")
-material/0 = SubResource( 9 )
-_sections_unfolded = [ "Transform", "material" ]
+material/0 = null
+_sections_unfolded = [ "Transform", "Visibility", "material" ]
 
-[node name="back" type="Spatial" parent="." index="9"]
+[node name="particles" type="Particles" parent="hydrazine4" index="0"]
+
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 0, -2.5, 0 )
+visible = false
+layers = 1
+material_override = SubResource( 8 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 1
+draw_pass_1 = SubResource( 10 )
+_sections_unfolded = [ "Draw Passes", "Geometry", "Transform", "Visibility" ]
+
+[node name="back" type="Spatial" parent="." index="8"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="polymerparticles" type="Particles" parent="." index="9"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+visible = false
+layers = 1
+material_override = SubResource( 8 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 20
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 1
+draw_pass_1 = SubResource( 10 )
+_sections_unfolded = [ "Drawing", "Transform", "Visibility" ]
+
+[node name="nuclearparticles" type="Particles" parent="." index="10"]
+
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -60, 0 )
+visible = false
+layers = 1
+material_override = SubResource( 8 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 2
+draw_pass_1 = SubResource( 10 )
+draw_pass_2 = SubResource( 17 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Time", "Transform", "Visibility" ]
 
 
